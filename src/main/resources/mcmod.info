@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "ores",
+    "name": "Ores",
+    "description": "Mod created to avoid situations when you install some mods and they adding similar ores.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": ["Wertyfire"],
+    "credits": "",
+    "logoFile": "assets/ores/logo.png",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

@@ -1,0 +1,9 @@
+ores.config.generate.category=Генерация руд
+ores.config.generate.copperOre=Генерировать медную руду
+
+item.copperIngot.name=Медный слиток
+
+itemGroup.ores=Ores
+
+tile.copperOre.name=Медная руда
+tile.copperBlock.name=Медный блок
