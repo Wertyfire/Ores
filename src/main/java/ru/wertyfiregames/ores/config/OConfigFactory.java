@@ -40,7 +40,7 @@ public class OConfigFactory implements IModGuiFactory {
     public static class OresGuiConfig extends GuiConfig {
         @SuppressWarnings("all")
         public OresGuiConfig(GuiScreen guiScreen) {
-            super(guiScreen, new ConfigElement(getConfig().getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(),
+            super(guiScreen, new ConfigElement(getConfig().getCategory(OConfig.CATEGORY_ORES)).getChildElements(),
                     Ores.getModId(), false, false,
                     GuiConfig.getAbridgedConfigPath(getConfig().toString()));
         }
