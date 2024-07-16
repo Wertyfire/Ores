@@ -1,9 +1,13 @@
 ores.config.generate.category=Ore Generation
 ores.config.generate.copperOre=Generate Copper Ore
+ores.config.generate.silverOre=Generate Silver Ore
 
 item.copperIngot.name=Copper Ingot
+item.silverIngot.name=Silver Ingot
 
 itemGroup.ores=Ores
 
-tile.copperOre.name=Copper Ore
 tile.copperBlock.name=Copper Block
+tile.copperOre.name=Copper Ore
+tile.silverBlock.name=Silver Block
+tile.silverOre.name=Silver Ore

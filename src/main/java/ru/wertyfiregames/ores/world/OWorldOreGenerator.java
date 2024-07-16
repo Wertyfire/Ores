@@ -29,8 +29,8 @@ public class OWorldOreGenerator implements IWorldGenerator {
 
     private void generateNether(World world, Random random, int x, int z) {}
     private void generateSurface(World world, Random random, int x, int z) {
-        if (OConfig.GENERATE_COPPER_ORE) addOreSpawn(OBlocks.copper_ore, world, random, x, z, 16,
-                16, 8, 6, 40, 75);
+        if (OConfig.GENERATE_COPPER_ORE) addOreSpawn(OBlocks.copper_ore, world, random, x, z, 16, 16, 8, 18, 40, 75);
+        if (OConfig.GENERATE_SILVER_ORE) addOreSpawn(OBlocks.silver_ore, world, random, x, z, 16, 16, 6, 8, 5, 30);
     }
     private void generateEnd(World world, Random random, int x, int z) {}
 

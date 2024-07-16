@@ -11,8 +11,10 @@ import ru.wertyfiregames.ores.item.ItemDefault;
 
 public class OItems {
     public static final Item copper_ingot = new ItemDefault("copperIngot", "copper_ingot", OCreativeTabs.tabOres);
+    public static final Item silver_ingot = new ItemDefault("silverIngot", "silver_ingot", OCreativeTabs.tabOres);
 
     public static void register() {
         GameRegistry.registerItem(copper_ingot, "copper_ingot");
+        GameRegistry.registerItem(silver_ingot, "silver_ingot");
     }
 }

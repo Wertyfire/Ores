@@ -13,10 +13,14 @@ import ru.wertyfiregames.ores.creativetab.OCreativeTabs;
 public class OBlocks {
 
     public static final Block copper_ore = new BlockOOre("copperOre", "copper_ore", OCreativeTabs.tabOres, 1, 3f, 5f);
-    public static final Block copper_block = new BlockOCompressed(MapColor.brownColor, "copperBlock", "copper_block", OCreativeTabs.tabOres, 1, 5f, 10f);
+    public static final Block copper_block = new BlockOCompressed(MapColor.adobeColor, "copperBlock", "copper_block", OCreativeTabs.tabOres, 1, 4.5f, 10f);
+    public static final Block silver_ore = new BlockOOre("silverOre", "silver_ore", OCreativeTabs.tabOres, 2, 3f, 5f);
+    public static final Block silver_block = new BlockOCompressed(MapColor.silverColor, "silverBlock", "silver_block", OCreativeTabs.tabOres, 2, 5f, 10f);
 
     public static void register() {
         GameRegistry.registerBlock(copper_ore, "copper_ore");
         GameRegistry.registerBlock(copper_block, "copper_block");
+        GameRegistry.registerBlock(silver_ore, "silver_ore");
+        GameRegistry.registerBlock(silver_block, "silver_block");
     }
 }
