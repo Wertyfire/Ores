@@ -1,13 +1,17 @@
 ores.config.generate.category=Генерация руд
 ores.config.generate.copperOre=Генерировать медную руду
 ores.config.generate.silverOre=Генерировать серебряную руду
+ores.config.generate.tinOre=Генерировать оловянную руду
 
 item.copperIngot.name=Медный слиток
 item.silverIngot.name=Серебряный слиток
+item.tinIngot.name=Оловянный слиток
 
 itemGroup.ores=Ores
 
-tile.copperBlock.name=Медный блок
 tile.copperOre.name=Медная руда
-tile.silverBlock.name=Серебряный блок
 tile.silverOre.name=Серебряная руда
+tile.tinOre.name=Оловянная руда
+tile.copperBlock.name=Медный блок
+tile.silverBlock.name=Серебряный блок
+tile.tinBlock.name=Оловянный блок

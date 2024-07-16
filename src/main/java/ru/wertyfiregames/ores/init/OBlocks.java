@@ -16,11 +16,18 @@ public class OBlocks {
     public static final Block copper_block = new BlockOCompressed(MapColor.adobeColor, "copperBlock", "copper_block", OCreativeTabs.tabOres, 1, 4.5f, 10f);
     public static final Block silver_ore = new BlockOOre("silverOre", "silver_ore", OCreativeTabs.tabOres, 2, 3f, 5f);
     public static final Block silver_block = new BlockOCompressed(MapColor.silverColor, "silverBlock", "silver_block", OCreativeTabs.tabOres, 2, 5f, 10f);
+    public static final Block tin_ore = new BlockOOre("tinOre", "tin_ore", OCreativeTabs.tabOres, 1, 3f, 5f);
+    public static final Block tin_block = new BlockOCompressed(MapColor.ironColor, "tinBlock", "tin_block", OCreativeTabs.tabOres, 1, 3f, 5f);
 
     public static void register() {
+//        Ores
         GameRegistry.registerBlock(copper_ore, "copper_ore");
-        GameRegistry.registerBlock(copper_block, "copper_block");
         GameRegistry.registerBlock(silver_ore, "silver_ore");
+        GameRegistry.registerBlock(tin_ore, "tin_ore");
+
+//        Blocks
+        GameRegistry.registerBlock(copper_block, "copper_block");
         GameRegistry.registerBlock(silver_block, "silver_block");
+        GameRegistry.registerBlock(tin_block, "tin_block");
     }
 }

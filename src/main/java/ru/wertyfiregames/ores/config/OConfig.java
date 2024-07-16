@@ -11,10 +11,12 @@ import net.minecraftforge.common.config.Property;
 import ru.wertyfiregames.ores.Ores;
 
 public class OConfig {
-    public static final String CATEGORY_GENERATION = Configuration.CATEGORY_GENERAL + Configuration.CATEGORY_SPLITTER + "generation";
+    public static final String CATEGORY_ORES = "ores";
+    public static final String CATEGORY_GENERATION = CATEGORY_ORES + Configuration.CATEGORY_SPLITTER + "generation";
 
     public static boolean GENERATE_COPPER_ORE;
     public static boolean GENERATE_SILVER_ORE;
+    public static boolean GENERATE_TIN_ORE;
 
     public static void load() {
         Ores.getConfig().setCategoryLanguageKey(CATEGORY_GENERATION, "ores.config.generate.category");
@@ -22,6 +24,7 @@ public class OConfig {
 
         GENERATE_COPPER_ORE = getBoolean(CATEGORY_GENERATION, "generateCopperOre", "ores.config.generate.copperOre", "Generate copper ore in the world?", true);
         GENERATE_SILVER_ORE = getBoolean(CATEGORY_GENERATION, "generateSilverOre", "ores.config.generate.silverOre", "Generate silver ore in the world?", true);
+        GENERATE_TIN_ORE = getBoolean(CATEGORY_GENERATION, "generateTinOre", "ores.config.generate.tinOre", "Generate tin ore in the world?", true);
 
         if (Ores.getConfig().hasChanged())
             Ores.config.save();
