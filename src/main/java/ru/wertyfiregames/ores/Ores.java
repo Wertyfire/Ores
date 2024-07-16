@@ -21,7 +21,7 @@ import java.io.File;
 public class Ores {
     public static final String MOD_ID = "ores";
     public static final String NAME = "Ores";
-    public static final String VERSION = "0.1";
+    public static final String VERSION = "1.0.0";
     private static Logger modLogger;
     public static Configuration config;
 
