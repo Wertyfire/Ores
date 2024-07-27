@@ -17,11 +17,12 @@ import ru.wertyfiregames.ores.proxy.CommonProxy;
 import java.io.File;
 
 @Mod(modid = Ores.MOD_ID, name = Ores.NAME, version = Ores.VERSION,
-        guiFactory = "ru.wertyfiregames.ores.config.OConfigFactory", canBeDeactivated = true)
+        guiFactory = Ores.GUI_FACTORY, canBeDeactivated = true)
 public class Ores {
     public static final String MOD_ID = "ores";
     public static final String NAME = "Ores";
     public static final String VERSION = "1.0.0";
+    public static final String GUI_FACTORY = "ru.wertyfiregames.ores.config.OConfigFactory";
     private static Logger modLogger;
     public static Configuration config;
 
