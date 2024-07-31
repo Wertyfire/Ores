@@ -9,15 +9,16 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import ru.wertyfiregames.ores.block.*;
 import ru.wertyfiregames.ores.creativetab.OCreativeTabs;
+import ru.wertyfiregames.wertyfirecore.block.CompressedBlock;
 
 public class OBlocks {
 
     public static final Block copper_ore = new BlockOOre("copperOre", "copper_ore", OCreativeTabs.tabOres, 1, 3f, 5f);
-    public static final Block copper_block = new BlockOCompressed(MapColor.adobeColor, "copperBlock", "copper_block", OCreativeTabs.tabOres, 1, 4.5f, 10f);
+    public static final Block copper_block = new CompressedBlock(MapColor.adobeColor, "copperBlock", "copper_block", OCreativeTabs.tabOres, 1, 4.5f, 10f);
     public static final Block silver_ore = new BlockOOre("silverOre", "silver_ore", OCreativeTabs.tabOres, 2, 3f, 5f);
-    public static final Block silver_block = new BlockOCompressed(MapColor.silverColor, "silverBlock", "silver_block", OCreativeTabs.tabOres, 2, 5f, 10f);
+    public static final Block silver_block = new CompressedBlock(MapColor.silverColor, "silverBlock", "silver_block", OCreativeTabs.tabOres, 2, 5f, 10f);
     public static final Block tin_ore = new BlockOOre("tinOre", "tin_ore", OCreativeTabs.tabOres, 1, 3f, 5f);
-    public static final Block tin_block = new BlockOCompressed(MapColor.ironColor, "tinBlock", "tin_block", OCreativeTabs.tabOres, 1, 3f, 5f);
+    public static final Block tin_block = new CompressedBlock(MapColor.ironColor, "tinBlock", "tin_block", OCreativeTabs.tabOres, 1, 3f, 5f);
 
     public static void register() {
 //        Ores

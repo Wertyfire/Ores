@@ -11,40 +11,38 @@ buildscript {
         }
     }
     dependencies {
-        classpath ('com.anatawa12.forge:ForgeGradle:1.2-1.1.+') {
-            changing = true
-        }
+        classpath ('com.anatawa12.forge:ForgeGradle:1.2-1.1.+')
+    }
+}
+
+repositories {
+    maven {
+        name = "wertyfireMaven"
+        url = "https://raw.githubusercontent.com/Wertyfire/Versions/main/maven/"
     }
 }
 
 apply plugin: 'forge'
-targetCompatibility = sourceCompatibility = JavaVersion.VERSION_1_8
 
-version = "1.0.0"
-group= "me.wertyfiregames.ores"
-archivesBaseName = "Ores"
+[compileJava, compileTestJava, compileApiJava]*.options*.encoding = 'UTF-8'
+
+targetCompatibility = sourceCompatibility =
+compileJava.targetCompatibility = compileJava.sourceCompatibility = JavaVersion.VERSION_1_8
+
+version = "1.7.10-1.0.0"
+group= "me.wertyfiregames"
+archivesBaseName = "ores"
 
 minecraft {
     version = "1.7.10-10.13.4.1614-1.7.10"
     runDir = "run"
 }
 
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
-}
-
 dependencies {
-    // you may put jars on which you depend on in ./libs
-    // or you may define them like so..
-    //compile "some.group:artifact:version:classifier"
-    //compile "some.group:artifact:version"
+    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
+    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24'
 
-    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
+    compile 'ru.wertyfiregames:wertyfire-core:1.7.10-1.0.1:dev'
 }
 
 processResources {

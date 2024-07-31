@@ -6,15 +6,15 @@ package ru.wertyfiregames.ores.block;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import ru.wertyfiregames.wertyfirecore.block.DefaultBlock;
 
-public class BlockOOre extends BlockDefault {
-
+public class BlockOOre extends DefaultBlock {
     public BlockOOre(String name, String textureName, CreativeTabs creativeTab,
                      int level, float hardness, float resistance) {
         super(Material.rock, name, textureName, creativeTab, "pickaxe", level, hardness, resistance);
     }
     public BlockOOre(String nameAll, CreativeTabs creativeTab,
                      int level, float hardness, float resistance) {
-        super(Material.rock, nameAll, nameAll, creativeTab, "pickaxe", level, hardness, resistance);
+        super(Material.rock, nameAll, creativeTab, "pickaxe", level, hardness, resistance);
     }
 }

@@ -5,53 +5,79 @@
 package ru.wertyfiregames.ores;
 
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.Mod.*;
+import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraftforge.common.config.Configuration;
 import org.apache.logging.log4j.Logger;
 import ru.wertyfiregames.ores.config.OConfig;
-import ru.wertyfiregames.ores.proxy.CommonProxy;
+import ru.wertyfiregames.ores.init.OBlocks;
+import ru.wertyfiregames.ores.init.OItems;
+import ru.wertyfiregames.ores.init.ORecipes;
+import ru.wertyfiregames.ores.init.compat.OOreDictionary;
+import ru.wertyfiregames.ores.world.OWorldOreGenerator;
+import ru.wertyfiregames.wertyfirecore.context.IMod;
+import ru.wertyfiregames.wertyfirecore.context.InitActions;
+import ru.wertyfiregames.wertyfirecore.context.ModContext;
 
 import java.io.File;
 
-@Mod(modid = Ores.MOD_ID, name = Ores.NAME, version = Ores.VERSION,
-        guiFactory = Ores.GUI_FACTORY, canBeDeactivated = true)
-public class Ores {
+@Mod(modid = Ores.MOD_ID, name = Ores.NAME, version = Ores.VERSION, dependencies = Ores.DEPENDENCIES,
+        guiFactory = "ru.wertyfiregames.ores.config.OConfigFactory")
+public class Ores implements IMod {
     public static final String MOD_ID = "ores";
     public static final String NAME = "Ores";
     public static final String VERSION = "1.0.0";
-    public static final String GUI_FACTORY = "ru.wertyfiregames.ores.config.OConfigFactory";
+    public static final String DEPENDENCIES = "required-after:wertyfirecore@[1.0.1];";
     private static Logger modLogger;
     public static Configuration config;
 
-    @Mod.Instance("ores")
-    public Ores instance;
-    private static final String clientSide = "ru.wertyfiregames.ores.proxy.ClientProxy";
-    private static final String serverSide = "ru.wertyfiregames.ores.proxy.CommonProxy";
-    @SidedProxy(clientSide = clientSide, serverSide = serverSide)
-    public static CommonProxy proxy;
+    @Metadata
+    public static ModMetadata METADATA;
+    @Instance
+    public static Ores INSTANCE;
 
-    @Mod.EventHandler
+    @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         modLogger = event.getModLog();
-        getModLogger().info("Ores mod: logger loaded");
+        getModLogger().debug("Ores mod: logger loaded");
         File configFile = new File(event.getModConfigurationDirectory().toString() + "/ores.cfg");
         config = new Configuration(configFile);
         OConfig.load();
         getModLogger().info("Ores mod: configuration loaded");
-        proxy.preInit(event);
+        ModContext.setModContext("ores");
+        OItems.register();
+        Ores.getModLogger().debug("Ores mod: items registered");
+        OBlocks.register();
+        Ores.getModLogger().debug("Ores mod: blocks loaded");
+        InitActions.doPreInit(event);
+        Ores.getModLogger().info("Ores mod: pre initialization complete");
+        ModContext.freeContext();
     }
 
-    @Mod.EventHandler
+    @EventHandler
     public void init(FMLInitializationEvent event) {
-        proxy.init(event);
+        ModContext.setModContext(this);
+        GameRegistry.registerWorldGenerator(new OWorldOreGenerator(), 0);
+        Ores.getModLogger().debug("Ores mod: ore generator loaded");
+        OOreDictionary.register();
+        Ores.getModLogger().debug("Ores mod: ore dictionary loaded");
+        ORecipes.register();
+        Ores.getModLogger().debug("Ores mod: recipes loaded");
+        InitActions.doInit(event);
+        Ores.getModLogger().info("Ores mod: initialization complete");
+        ModContext.freeContext();
     }
 
-    @Mod.EventHandler
+    @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        proxy.postInit(event);
+        ModContext.setModContext(this);
+        InitActions.doPostInit(event);
+        Ores.getModLogger().info("Ores mod: post initialization complete");
+        ModContext.freeContext();
     }
 
 //    Getters
